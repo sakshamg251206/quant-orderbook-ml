@@ -1,0 +1,36 @@
+{
+  "best_model": "CatBoost",
+  "target_column": "label_1s",
+  "comparison_results": {
+    "CatBoost": {
+      "Model": "CatBoost",
+      "AUC": 0.5,
+      "Log Loss": 0.282,
+      "Accuracy": 1.0,
+      "Precision": 0.0,
+      "Recall": 0.0,
+      "F1 Score": 0.0,
+      "Training Time (s)": 0.1588
+    },
+    "XGBoost": {
+      "Model": "XGBoost",
+      "AUC": 0.5,
+      "Log Loss": 0.0063,
+      "Accuracy": 1.0,
+      "Precision": 0.0,
+      "Recall": 0.0,
+      "F1 Score": 0.0,
+      "Training Time (s)": 0.0458
+    },
+    "LogisticRegression": {
+      "Model": "LogisticRegression",
+      "AUC": 0.5,
+      "Log Loss": 0.0189,
+      "Accuracy": 1.0,
+      "Precision": 0.0,
+      "Recall": 0.0,
+      "F1 Score": 0.0,
+      "Training Time (s)": 0.0248
+    }
+  }
+}
