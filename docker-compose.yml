@@ -1,0 +1,33 @@
+# Live deployment: record the Binance book, score it, and serve the dashboard.
+# Train a model first (see README), e.g.:
+#   docker compose run --rm collector obml collect --minutes 30
+#   docker compose run --rm collector obml build-dataset
+#   docker compose run --rm collector obml train
+#   docker compose up -d
+x-app: &app
+  build: .
+  image: orderbook-ml
+  env_file:
+    - path: .env
+      required: false
+  volumes:
+    - obml-data:/data
+  restart: unless-stopped
+
+services:
+  collector:
+    <<: *app
+    command: ["obml", "collect"]
+
+  predictor:
+    <<: *app
+    command: ["obml", "predict"]
+
+  dashboard:
+    <<: *app
+    command: ["obml", "dashboard", "--host", "0.0.0.0"]
+    ports:
+      - "8501:8501"
+
+volumes:
+  obml-data:
