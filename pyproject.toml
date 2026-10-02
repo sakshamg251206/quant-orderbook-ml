@@ -72,7 +72,6 @@ ignore = [
 known-first-party = ["orderbook_ml"]
 
 [tool.mypy]
-python_version = "3.11"
 packages = ["orderbook_ml"]
 mypy_path = "src"
 ignore_missing_imports = true
